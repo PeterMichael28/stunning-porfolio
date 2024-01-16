@@ -6,7 +6,7 @@ export const renderLetters = ( name: KeyTextField, key: string ) => {
     return name.split("").map((letter, index) => (
       <span
         key={index}
-        className={`name-animation name-animation-${key}-index inline-block opacity-100 `}
+        className={`name-animation name-animation-${key}-index inline-block opacity-0 `}
       >
         {letter}
       </span>

@@ -1,3 +1,6 @@
+'use client';
+
+import Bounded from '@/components/Bounded';
 import { renderLetters } from '@/utils/helpers';
 import { Content } from '@prismicio/client';
 import { SliceComponentProps } from '@prismicio/react';
@@ -27,7 +30,6 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       x: 0,
       opacity: 1,
       rotate: 0,
-
       ease: 'elastic.out(1,0.3)',
       duration: 1,
       transformOrigin: 'left top',
@@ -46,16 +48,19 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       y: 0,
       duration: 1,
       scale: 1,
-      ease: 'elastic.out(1,0.3)',
+      ease: 'bounce.out',
      },
     );
   }, component);
+
   return () => ctx.revert(); // cleanup!
  }, []);
+
  return (
-  <section
+  <Bounded
    data-slice-type={slice.slice_type}
    data-slice-variation={slice.variation}
+   ref={component}
   >
    <div className="grid min-h-[70vh] grid-cols-1 items-center md:grid-cols-2">
     <div className="col-start-1 row-start-1">
@@ -73,12 +78,12 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       </span>
      </h1>
 
-     <span className="job-title block bg-gradient-to-tr from-yellow-600 via-yellow-200 to-yellow-600 bg-clip-text text-2xl font-bold uppercase tracking-[.2em] text-transparent opacity-100 md:text-4xl">
+     <span className="job-title block bg-gradient-to-tr from-yellow-600 via-yellow-200 to-yellow-600 bg-clip-text text-2xl font-bold uppercase tracking-[.2em] text-transparent opacity-0 md:text-4xl">
       {slice.primary.description}
      </span>
     </div>
    </div>
-  </section>
+  </Bounded>
  );
 };
 
