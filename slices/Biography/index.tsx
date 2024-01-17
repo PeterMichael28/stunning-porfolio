@@ -1,7 +1,8 @@
 import { Content } from "@prismicio/client";
-import { SliceComponentProps } from "@prismicio/react";
+import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import Bounded from '@/components/Bounded';
 import SectionHeading from '@/components/SectionHeading';
+
 
 /**
  * Props for `Biography`.
@@ -22,9 +23,20 @@ const Biography = ({ slice }: BiographyProps): JSX.Element => {
           {slice.primary.heading}
         </SectionHeading>
       </div>
+
+
+
+      <div className="prose prose-xl prose-slate prose-invert col-start-1">
+          <PrismicRichText field={slice.primary.description} />
+        </div>
+
       
+        
+
     </Bounded>
   );
 };
+
+
 
 export default Biography;
