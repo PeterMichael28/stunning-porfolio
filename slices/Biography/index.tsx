@@ -22,7 +22,7 @@ const Biography = ({ slice }: BiographyProps): JSX.Element => {
           {slice.primary.heading}
         </SectionHeading>
       </div>
-      Placeholder component for biography (variation: {slice.variation}) Slices
+      
     </Bounded>
   );
 };
