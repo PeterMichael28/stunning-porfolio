@@ -2,6 +2,7 @@ import { Content } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import Bounded from '@/components/Bounded';
 import SectionHeading from '@/components/SectionHeading';
+import Button from "@/components/Button";
 
 
 /**
@@ -26,11 +27,14 @@ const Biography = ({ slice }: BiographyProps): JSX.Element => {
 
 
 
-      <div className="prose prose-xl prose-slate prose-invert col-start-1">
+      <div className="prose prose-xl prose-slate prose-invert col-start-1 text-sm">
           <PrismicRichText field={slice.primary.description} />
         </div>
 
-      
+        <Button
+          linkField={slice.primary.button_link}
+          label={slice.primary.button_text}
+        />
         
 
     </Bounded>
