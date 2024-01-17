@@ -10,16 +10,18 @@ export function Shapes() {
 
 
     return (
-        <div className="row-span-1 row-start-1 -mt-9 aspect-square  md:col-span-1 md:col-start-2 md:mt-0">
+        <div className="row-span-1 row-start-1 -mt-9 aspect-square  md:col-span-1 md:col-start-2 h-[80vh] md:mt-0">
              <Canvas
         className="z-0"
         shadows
         gl={{ antialias: false }}
         dpr={[1, 1.5]}
-        camera={{ position: [0, 0, 25], fov: 30, near: 1, far: 40 }}
+        camera={{ position: [0, 0, 23], fov: 30, near: 1, far: 40 }}
+        
         >
              <Suspense fallback={null}>
-          {/* <Geometries /> */}
+            
+          <Geometries />
           <ContactShadows
             position={[0, -3.5, 0]}
             opacity={0.65}
@@ -28,7 +30,7 @@ export function Shapes() {
             far={9}
           />
 
-          <Environment preset="studio" />
+          <Environment preset="lobby" />
         </Suspense>    
       </Canvas>
         </div>
@@ -66,28 +68,22 @@ const geometries = [
   },
 ]
 
+
 const soundEffects = [
-  new Audio("/sounds/hit2.ogg"),
-  new Audio("/sounds/hit3.ogg"),
-  new Audio("/sounds/hit4.ogg"),
+  new Audio("/sounds/hit2.ogg")
+  // new Audio("/sounds/hit3.ogg"),
+  // new Audio("/sounds/hit4.ogg"),
+  
 ];
 
 const materials = [
   new THREE.MeshNormalMaterial(),
-  new THREE.MeshStandardMaterial({ color: 0x2ecc71, roughness: 0 }),
-  new THREE.MeshStandardMaterial({ color: 0xf1c40f, roughness: 0.4 }),
-  new THREE.MeshStandardMaterial({ color: 0xe74c3c, roughness: 0.1 }),
   new THREE.MeshStandardMaterial({ color: 0x8e44ad, roughness: 0.1 }),
-  new THREE.MeshStandardMaterial({ color: 0x1abc9c, roughness: 0.1 }),
+    new THREE.MeshStandardMaterial({ color: 0x1abc9c, roughness: 0.1 }),
   new THREE.MeshStandardMaterial({
-    roughness: 0,
-    metalness: 0.5,
-    color: 0x2980b9,
-  }),
-  new THREE.MeshStandardMaterial({
-    color: 0x2c3e50,
-    roughness: 0.1,
-    metalness: 0.5,
+    color: 0x4cff3c,//
+    roughness: 0.8,
+    metalness: 0.7,
   }),
 ];
 
@@ -118,7 +114,7 @@ function Geometry({ r, position, geometry, soundEffects, materials }) {
     const mesh = e.object;
 
     gsap.utils.random(soundEffects).play();
-
+   
     gsap.to(mesh.rotation, {
       x: `+=${gsap.utils.random(0, 3)}`,
       y: `+=${gsap.utils.random(0, 3)}`,
@@ -127,7 +123,7 @@ function Geometry({ r, position, geometry, soundEffects, materials }) {
       ease: "elastic.out(1,0.3)",
       yoyo: true,
     });
-    
+
 
     mesh.material = getRandomMaterial();
   }
@@ -154,6 +150,8 @@ function Geometry({ r, position, geometry, soundEffects, materials }) {
     });
     return () => ctx.revert();
   }, []);
+
+  
 
   return (
     <group position={position} ref={meshRef}>

@@ -56,13 +56,15 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
   return () => ctx.revert(); // cleanup!
  }, []);
 
+
+
  return (
   <Bounded
    data-slice-type={slice.slice_type}
    data-slice-variation={slice.variation}
    ref={component}
   >
-   <div className="grid min-h-[70vh] grid-cols-1 items-center md:grid-cols-2">
+   <div className="grid h-[60vh] grid-cols-1 place-items-center place-content-center md:grid-cols-2 max-w-7xl mx-auto px-3 md:px-0">
     <div className="col-start-1 row-start-1">
      <h1
       className="mb-8 text-[clamp(3rem,20vmin,20rem)] font-extrabold leading-none tracking-tighter"
