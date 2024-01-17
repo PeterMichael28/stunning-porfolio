@@ -6,7 +6,7 @@ import { Content } from '@prismicio/client';
 import { SliceComponentProps } from '@prismicio/react';
 import gsap from 'gsap';
 import { useEffect, useRef } from 'react';
-
+import {Shapes} from './Shapes'
 /**
  * Props for `Hero`.
  */
@@ -82,6 +82,8 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       {slice.primary.description}
      </span>
     </div>
+
+    <Shapes />
    </div>
   </Bounded>
  );
