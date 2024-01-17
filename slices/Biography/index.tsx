@@ -3,6 +3,7 @@ import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 import Bounded from '@/components/Bounded';
 import SectionHeading from '@/components/SectionHeading';
 import Button from "@/components/Button";
+import Avatar from "@/components/Avatar";
 
 
 /**
@@ -19,15 +20,15 @@ const Biography = ({ slice }: BiographyProps): JSX.Element => {
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <div className="grid gap-x-8 gap-y-6 md:grid-cols-[2fr,1fr]">
+      <div className="grid gap-x-8 gap-y-6 md:grid-cols-[2fr,1fr] max-w-7xl mx-auto px-3 md:px-0">
       <SectionHeading size="xl" className="col-start-1">
           {slice.primary.heading}
         </SectionHeading>
-      </div>
+     
 
 
 
-      <div className="prose prose-xl prose-slate prose-invert col-start-1 text-sm">
+      <div className="prose prose-xl prose-slate prose-invert col-start-1 text-base mt-1">
           <PrismicRichText field={slice.primary.description} />
         </div>
 
@@ -36,7 +37,11 @@ const Biography = ({ slice }: BiographyProps): JSX.Element => {
           label={slice.primary.button_text}
         />
         
-
+        <Avatar
+          image={slice.primary.avatar}
+          className="row-start-1 max-w-sm md:col-start-2 md:row-end-3"
+        />
+         </div>
     </Bounded>
   );
 };
