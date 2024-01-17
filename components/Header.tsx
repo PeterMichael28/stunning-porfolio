@@ -5,7 +5,9 @@ import NavBar from "@/components/NavBar";
 
 export default async function Header() {
   const client = createClient();
-  const settings = await client.getSingle("settings");
+  const settings = await client.getByUID("settings", "settingspageid");
+
+//   console.log({settings})
   return (
     <header className="top-0 z-50 mx-auto max-w-7xl md:sticky md:top-4">
       <NavBar settings={settings} />
