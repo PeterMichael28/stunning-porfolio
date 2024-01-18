@@ -7,4 +7,5 @@ export const components = {
   content_index: dynamic(() => import("./ContentIndex")),
   hero: dynamic(() => import("./Hero")),
   my_skills: dynamic(() => import("./MySkills")),
+  test_blog: dynamic(() => import("./TestBlog")),
 };
