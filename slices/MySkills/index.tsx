@@ -6,6 +6,12 @@ import { Content } from "@prismicio/client";
 import { SliceComponentProps } from "@prismicio/react";
 import React, {useLayoutEffect, useRef} from 'react'
 import {MdCircle} from 'react-icons/md'
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+
+
+gsap.registerPlugin(ScrollTrigger);
 /**
  * Props for `MySkills`.
  */
@@ -28,7 +34,7 @@ const MySkills = ({ slice }: MySkillsProps): JSX.Element => {
           start: "top bottom",
           end: "bottom top",
           scrub: 4,
-          markers: true
+          // markers: true
         },
       });
 
@@ -78,7 +84,7 @@ const MySkills = ({ slice }: MySkillsProps): JSX.Element => {
             <React.Fragment key={index}>
               <span
                 className={
-                  "tech-item text-8xl font-extrabold uppercase tracking-tighter"
+                  "tech-item text-6xl font-bold uppercase tracking-tighter"
                 }
                 style={{
                   color: index === 7 && tech_color ? tech_color : "inherit",
