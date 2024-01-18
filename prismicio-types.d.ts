@@ -69,7 +69,7 @@ export type HomepageDocument<Lang extends string = string> =
     Lang
   >;
 
-type PageDocumentDataSlicesSlice = BiographySlice;
+type PageDocumentDataSlicesSlice = MySkillsSlice | BiographySlice;
 
 /**
  * Content for Page documents
@@ -436,6 +436,103 @@ type HeroSliceVariation = HeroSliceDefault;
  */
 export type HeroSlice = prismic.SharedSlice<"hero", HeroSliceVariation>;
 
+/**
+ * Primary content in *MySkills → Primary*
+ */
+export interface MySkillsSliceDefaultPrimary {
+  /**
+   * Heading field in *MySkills → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: my_skills.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  heading: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *MySkills → Items*
+ */
+export interface MySkillsSliceDefaultItem {
+  /**
+   * skill name field in *MySkills → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: my_skills.items[].skill_name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  skill_name: prismic.KeyTextField;
+
+  /**
+   * tech color field in *MySkills → Items*
+   *
+   * - **Field Type**: Color
+   * - **Placeholder**: *None*
+   * - **API ID Path**: my_skills.items[].tech_color
+   * - **Documentation**: https://prismic.io/docs/field#color
+   */
+  tech_color: prismic.ColorField;
+}
+
+/**
+ * Default variation for MySkills Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MySkillsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<MySkillsSliceDefaultPrimary>,
+  Simplify<MySkillsSliceDefaultItem>
+>;
+
+/**
+ * Slice variation for *MySkills*
+ */
+type MySkillsSliceVariation = MySkillsSliceDefault;
+
+/**
+ * MySkills Shared Slice
+ *
+ * - **API ID**: `my_skills`
+ * - **Description**: MySkills
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MySkillsSlice = prismic.SharedSlice<
+  "my_skills",
+  MySkillsSliceVariation
+>;
+
+/**
+ * Default variation for Skills Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SkillsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *Skills*
+ */
+type SkillsSliceVariation = SkillsSliceDefault;
+
+/**
+ * Skills Shared Slice
+ *
+ * - **API ID**: `skills`
+ * - **Description**: Skills
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type SkillsSlice = prismic.SharedSlice<"skills", SkillsSliceVariation>;
+
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -464,6 +561,14 @@ declare module "@prismicio/client" {
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
       HeroSliceDefault,
+      MySkillsSlice,
+      MySkillsSliceDefaultPrimary,
+      MySkillsSliceDefaultItem,
+      MySkillsSliceVariation,
+      MySkillsSliceDefault,
+      SkillsSlice,
+      SkillsSliceVariation,
+      SkillsSliceDefault,
     };
   }
 }
