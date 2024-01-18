@@ -1,23 +1,20 @@
 import { Content } from "@prismicio/client";
-import { SliceComponentProps } from "@prismicio/react";
+import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 
 /**
- * Props for `TestBlog`.
+ * Props for `TextBlock`.
  */
-export type TestBlogProps = SliceComponentProps<Content.TestBlogSlice>;
+export type TextBlockProps = SliceComponentProps<Content.TestBlogSlice>;
 
 /**
- * Component for "TestBlog" Slices.
+ * Component for "TextBlock" Slices.
  */
-const TestBlog = ({ slice }: TestBlogProps): JSX.Element => {
+const TextBlock = ({ slice }: TextBlockProps): JSX.Element => {
   return (
-    <section
-      data-slice-type={slice.slice_type}
-      data-slice-variation={slice.variation}
-    >
-      Placeholder component for test_blog (variation: {slice.variation}) Slices
-    </section>
+    <div className="max-w-prose">
+      <PrismicRichText field={slice.primary.text} />
+    </div>
   );
 };
 
-export default TestBlog;
+export default TextBlock;

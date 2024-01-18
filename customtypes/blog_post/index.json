@@ -38,7 +38,11 @@
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": {}
+          "choices": {
+            "test_blog": {
+              "type": "SharedSlice"
+            }
+          }
         }
       }
     },

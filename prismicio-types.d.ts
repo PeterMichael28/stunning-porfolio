@@ -4,7 +4,7 @@ import type * as prismic from "@prismicio/client";
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
-type BlogPostDocumentDataSlicesSlice = never;
+type BlogPostDocumentDataSlicesSlice = TestBlogSlice;
 
 /**
  * Content for Blog Post documents
@@ -793,6 +793,21 @@ export type MySkillsSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Primary content in *TestBlog → Primary*
+ */
+export interface TestBlogSliceDefaultPrimary {
+  /**
+   * Text field in *TestBlog → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: test_blog.primary.text
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  text: prismic.RichTextField;
+}
+
+/**
  * Default variation for TestBlog Slice
  *
  * - **API ID**: `default`
@@ -801,7 +816,7 @@ export type MySkillsSlice = prismic.SharedSlice<
  */
 export type TestBlogSliceDefault = prismic.SharedSliceVariation<
   "default",
-  Record<string, never>,
+  Simplify<TestBlogSliceDefaultPrimary>,
   never
 >;
 
@@ -866,6 +881,7 @@ declare module "@prismicio/client" {
       MySkillsSliceVariation,
       MySkillsSliceDefault,
       TestBlogSlice,
+      TestBlogSliceDefaultPrimary,
       TestBlogSliceVariation,
       TestBlogSliceDefault,
     };

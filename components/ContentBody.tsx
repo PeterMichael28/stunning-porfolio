@@ -2,7 +2,7 @@ import { SliceZone } from "@prismicio/react";
 import { Content } from "@prismicio/client";
 
 import { components } from "@/slices";
-import Heading from "@/components/Heading";
+import SectionHeading from "@/components/SectionHeading";
 import Bounded from "@/components/Bounded";
 import { formatDate } from "@/utils/formatDate";
 
@@ -15,7 +15,7 @@ export default function ContentBody({
   return (
     <Bounded as="article">
       <div className="rounded-2xl border-2 border-slate-800 bg-slate-900 px-4 py-10 md:px-8 md:py-20">
-        <Heading as="h1">{page.data.title}</Heading>
+        <SectionHeading as="h1">{page.data.title}</SectionHeading>
         <div className="flex gap-4 text-yellow-400">
           {page.tags.map((tag, index) => (
             <span key={index} className="text-xl font-bold">
