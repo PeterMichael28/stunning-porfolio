@@ -34,11 +34,22 @@
           "thumbnails": []
         }
       },
+      "liveurl": {
+        "type": "Link",
+        "config": {
+          "label": "Live Url",
+          "placeholder": "",
+          "select": "media"
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
+            "image_block": {
+              "type": "SharedSlice"
+            },
             "test_blog": {
               "type": "SharedSlice"
             }

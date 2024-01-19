@@ -57,6 +57,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
  }, []);
 
 
+  
 
  return (
   <Bounded
