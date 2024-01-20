@@ -22,7 +22,7 @@ export function Shapes() {
   }
 
     return (
-        <div className="row-span-1 md:row-start-1 -mt- aspect-square  md:col-span-1 md:col-start-2 h-[80vh] md:mt-0 ">
+        <div className="row-span-1 md:row-start-1 -mt- aspect-square  md:col-span-1 md:col-start-2 h-[80vh] md:mt-0 w-full overflow-x-hidden">
              <Canvas
         className="z-0"
         shadows
