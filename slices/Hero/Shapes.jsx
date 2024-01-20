@@ -7,7 +7,19 @@ import { Suspense, useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 
 export function Shapes() {
+  const [ mounted, setMounted ] = useState( false )
+  
+  useEffect( () => {
+    if ( !mounted ) {
+      setMounted(true)
+    }
+  }, [mounted])
 
+  if ( !mounted ) {
+    return (
+      <h1>Loading...</h1>
+    )
+  }
 
     return (
         <div className="row-span-1 md:row-start-1 -mt- aspect-square  md:col-span-1 md:col-start-2 h-[80vh] md:mt-0 ">
@@ -19,7 +31,7 @@ export function Shapes() {
         camera={{ position: [0, 0, 23], fov: 30, near: 1, far: 40 }}
         
         >
-             <Suspense fallback={<h1>Loading...</h1>}>
+             <Suspense fallback={null}>
             
           <Geometries />
           <ContactShadows
