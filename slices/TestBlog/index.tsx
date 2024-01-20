@@ -1,5 +1,5 @@
 import Button from "@/components/Button";
-import { Content } from "@prismicio/client";
+import { Content, isFilled } from "@prismicio/client";
 import { PrismicRichText, SliceComponentProps } from "@prismicio/react";
 
 /**
@@ -14,13 +14,16 @@ const TextBlock = ({ slice }: TextBlockProps): JSX.Element => {
   return (
     <div className="max-w-prose">
       <PrismicRichText field={slice.primary.text} />
-
-      <div className='mt-4'>
+    {
+      isFilled.link(slice?.primary?.live_url) && <div className='mt-4'>
       <Button
           linkField={slice?.primary?.live_url}
           label="Live Url"
+          className='text-black'
         />
     </div>
+    }
+      
     </div>
   );
 };

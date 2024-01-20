@@ -10,7 +10,7 @@ export function Shapes() {
 
 
     return (
-        <div className="row-span-1 row-start-1 -mt-9 aspect-square  md:col-span-1 md:col-start-2 h-[80vh] md:mt-0 hidden md:block">
+        <div className="row-span-1 md:row-start-1 -mt- aspect-square  md:col-span-1 md:col-start-2 h-[80vh] md:mt-0 ">
              <Canvas
         className="z-0"
         shadows
@@ -19,7 +19,7 @@ export function Shapes() {
         camera={{ position: [0, 0, 23], fov: 30, near: 1, far: 40 }}
         
         >
-             <Suspense fallback={null}>
+             <Suspense fallback={<h1>Loading...</h1>}>
             
           <Geometries />
           <ContactShadows
