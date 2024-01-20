@@ -65,10 +65,10 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
    data-slice-variation={slice.variation}
    ref={component}
   >
-   <div className="grid h-[60vh] grid-cols-1 place-items-center place-content-center md:grid-cols-2 max-w-7xl mx-auto px-3 md:px-0">
-    <div className="col-start-1 row-start-1">
+   <div className="grid md:h-[60vh]  grid-cols-1 place-items-center place-content-center md:grid-cols-2 max-w-7xl mx-auto px-3 md:px-0">
+    <div className="col-start-1 md:row-start-1">
      <h1
-      className="mb-8 text-[clamp(3rem,20vmin,20rem)] font-extrabold leading-none tracking-tighter"
+      className="mb-8 text-[clamp(3rem,20vmin,20rem)] font-extrabold leading-none tracking-tighter max-md:text-center"
       aria-label={
        slice.primary.first_name + ' ' + slice.primary.last_name
       }
@@ -81,7 +81,7 @@ const Hero = ({ slice }: HeroProps): JSX.Element => {
       </span>
      </h1>
 
-     <span className="job-title block bg-gradient-to-tr from-yellow-600 via-yellow-200 to-yellow-600 bg-clip-text text-2xl font-bold uppercase tracking-[.2em] text-transparent opacity-0 md:text-4xl">
+     <span className="job-title block bg-gradient-to-tr from-yellow-600 via-yellow-200 to-yellow-600 bg-clip-text text-2xl font-bold uppercase tracking-[.2em] text-transparent opacity-0 md:text-4xl max-md:text-center">
       {slice.primary.description}
      </span>
     </div>

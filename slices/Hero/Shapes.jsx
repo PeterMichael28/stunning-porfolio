@@ -10,7 +10,7 @@ export function Shapes() {
 
 
     return (
-        <div className="row-span-1 row-start-1 -mt-9 aspect-square  md:col-span-1 md:col-start-2 h-[80vh] md:mt-0">
+        <div className="row-span-1 row-start-1 -mt-9 aspect-square  md:col-span-1 md:col-start-2 h-[80vh] md:mt-0 hidden md:block">
              <Canvas
         className="z-0"
         shadows
