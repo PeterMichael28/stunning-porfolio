@@ -14,7 +14,7 @@
 					{
 						"type": "paragraph",
 						"content": {
-							"text": "Anim ad amet dolor. Reprehenderit dolor eiusmod veniam labore mollit qui Lorem Lorem incididunt est. Ea laboris enim quis magna laborum non labore quis esse dolore mollit esse nulla aute aliqua."
+							"text": "Et tempor aliquip esse nostrud enim incididunt nostrud tempor incididunt."
 						}
 					}
 				]
@@ -32,7 +32,6 @@
 				}
 			},
 			"avatar": {
-				"__TYPE__": "ImageContent",
 				"origin": {
 					"id": "main",
 					"url": "https://images.unsplash.com/photo-1579931794097-0ad001e51edb",
@@ -50,6 +49,9 @@
 					},
 					"background": "transparent"
 				},
+				"credits": null,
+				"alt": null,
+				"__TYPE__": "ImageContent",
 				"thumbnails": {}
 			}
 		},
