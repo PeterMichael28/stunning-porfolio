@@ -7,8 +7,7 @@ import { createClient, repositoryName } from "@/prismicio";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 
-
-const urbanist = Urbanist({ subsets: ['latin'] })
+const urbanist = Urbanist({ subsets: ["latin"] });
 
 export async function generateMetadata(): Promise<Metadata> {
   const client = createClient();
@@ -17,19 +16,24 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title: settings.data.meta_title,
     description: settings.data.meta_description,
-    // openGraph: {
-    //   images: [settings.data.og_image?.url || ""],
-    // },
+    openGraph: {
+      images: ["/og_graph.png"],
+    },
   };
 }
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en" className="bg-slate-900">
-      <body className={clsx(urbanist.className, "relative min-h-screen overflow-x-hidden")}>
+      <body
+        className={clsx(
+          urbanist.className,
+          "relative min-h-screen overflow-x-hidden",
+        )}
+      >
         <Header />
         {children}
         <div className="background-gradient absolute inset-0 -z-50 max-h-screen" />
@@ -38,8 +42,7 @@ export default function RootLayout({
         <Footer />
 
         <PrismicPreview repositoryName={repositoryName} />
-        </body>
+      </body>
     </html>
-  )
+  );
 }
-
