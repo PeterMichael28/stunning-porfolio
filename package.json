@@ -1,7 +1,10 @@
 {
  "name": "stunning-porfolio",
- "version": "0.1.0",
- "private": true,
+"version": "0.1.0",
+"private": true,
+"engines": {
+ "node": "22.x"
+},
  "scripts": {
   "dev": "next dev -p 4000",
   "build": "next build",
